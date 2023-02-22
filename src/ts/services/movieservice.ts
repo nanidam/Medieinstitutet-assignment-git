@@ -1,0 +1,19 @@
+import axios from "axios";
+import { ITmdbResponse } from "../models/ITmdbResponse";
+import { IMovie } from "../models/IMovie";
+
+export const fetchMovies = async (page: number): Promise<IMovie[]> => {
+  const API_CONFIG = {
+    params: {
+      api_key: "edfb4a11c2c5f2ff5f3e1ef08db80649",
+      page,
+    },
+  };
+
+  const response: ITmdbResponse = await axios.get(
+    "https://api.themoviedb.org/3/discover/movie",
+    API_CONFIG
+  );
+
+  return response.data.results;
+};
