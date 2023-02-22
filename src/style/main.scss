@@ -8,6 +8,73 @@ body {
   color: white;
 }
 
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+.menu-bar {
+  position: fixed;
+  top: 20px;
+  right: 15px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #380a75;
+  z-index: 10;
+
+  .menu-bar-btn {
+    position: relative;
+    height: 2px;
+    width: 20px;
+    background-color: white;
+    margin: 4px 0;
+    transition: all 0.3s ease-out;
+    transform-origin: center;
+  }
+
+  .menu-bar-btn:before,
+  .menu-bar-btn:after {
+    content: '';
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    background-color: inherit;
+    transition: inherit;
+    border-radius: inherit;
+  }
+
+  .menu-bar-btn:before {
+    top: -7px;
+    transform: rotate(45deg);
+  }
+
+  .menu-bar-btn:after {
+    bottom: -6px;
+    transform: rotate(-45deg);
+  }
+
+  .menu-bar-btn:focus,
+  .menu-bar-btn:hover {
+    transform: scale(1.1);
+    background-color: white;
+  }
+
+  .menu-bar-btn:focus:before,
+  .menu-bar-btn:hover:before {
+    transform: rotate(45deg) translate(2px, -2px);
+  }
+
+  .menu-bar-btn:focus:after,
+  .menu-bar-btn:hover:after {
+    transform: rotate(-45deg) translate(2px, 2px);
+  }
+}
+
+
 .movies-container {
   .movie-container {
     display: flex;
