@@ -1,0 +1,9 @@
+[33m64b7fcc[m[33m ([m[1;36mHEAD -> [m[1;32mfeature-movie[m[33m)[m render movies
+[33m368be7a[m added api for movies
+[33m68691f2[m fixed bugs in movie styling
+[33m791ca9e[m added styling for movie
+[33m52d23ae[m[33m ([m[1;32mfeature-body-html[m[33m, [m[1;32mdevelop[m[33m)[m added styling
+[33maeff318[m bug fixes
+[33mf94b901[m vite config
+[33m3c47245[m vite config
+[33m55b59d8[m[33m ([m[1;32mmain[m[33m)[m init project
