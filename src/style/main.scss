@@ -1,6 +1,57 @@
+$primary-color: #FF6F61;
+$secondary-color: #6B5B95;
+
 body {
     background: linear-gradient(to bottom, #11022a, #28025a);
     background-attachment: fixed;
     background-size: cover;
     color: white;
+}
+
+
+.movie-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 40px auto;
+    max-width: 800px;
+    border: 2px solid $primary-color;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+    .movie-poster {
+        width: 200px;
+        height: 300px;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .movie-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .movie-overview {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 10px;
+        font-size: 18px;
+
+        .movie-overview p {
+            margin: 0;
+        }
+    }
+}
+
+.movie-container:hover {
+    border-color: $secondary-color;
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    transition: all 0.2s ease-in-out;
 }
