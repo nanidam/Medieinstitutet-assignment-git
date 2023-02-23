@@ -1,9 +1,14 @@
 import { IMovie } from "./models/IMovie";
 import { fetchMovies } from "./services/movieservice";
+let whichPage: number = 1;
 
 const createMovies = async () => {
-  const movies = await fetchMovies(1);
-  const moviesContainer = document.querySelector(".movies-container");
+  const movies = await fetchMovies(whichPage);
+
+  const moviesContainer = document.querySelector(
+    ".movies-container"
+  ) as HTMLElement;
+  moviesContainer.innerHTML = "";
 
   for (let i = 0; i < movies.length; i++) {
     const movieContainer = document.createElement("div");
@@ -21,5 +26,52 @@ const createMovies = async () => {
     moviesContainer?.appendChild(movieContainer);
   }
 };
+
+const nextPageBtn = document.querySelector(".next-page") as HTMLButtonElement;
+const previousPageBtn = document.querySelector(
+  ".previous-page"
+) as HTMLButtonElement;
+const firstPageBtn = document.querySelector(".first-page") as HTMLButtonElement;
+const lastPageBtn = document.querySelector(".last-page") as HTMLButtonElement;
+
+nextPageBtn.addEventListener("click", () => {
+  if (whichPage < 500) {
+    whichPage += 1;
+    createMovies();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+});
+
+previousPageBtn.addEventListener("click", () => {
+  if (whichPage > 1) {
+    whichPage -= 1;
+    createMovies();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+});
+
+firstPageBtn.addEventListener("click", () => {
+  whichPage = 1;
+  createMovies();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+lastPageBtn.addEventListener("click", () => {
+  whichPage = 500;
+  createMovies();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
 
 createMovies();
