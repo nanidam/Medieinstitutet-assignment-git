@@ -99,3 +99,7 @@ lastPageBtn.addEventListener("click", () => {
 
 createMoviesSlider();
 createMovies();
+
+console.log("merge-branch2");
+
+console.log("cherry-picking");
