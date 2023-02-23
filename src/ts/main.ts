@@ -4,6 +4,7 @@ let whichPage: number = 1;
 
 const createMovies = async () => {
   const movies = await fetchMovies(whichPage);
+
   const moviesContainer = document.querySelector(
     ".movies-container"
   ) as HTMLElement;
