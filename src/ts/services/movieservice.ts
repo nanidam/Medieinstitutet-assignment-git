@@ -19,11 +19,5 @@ export const fetchMovies = async (
     API_CONFIG
   );
 
-  // const response2: ITmdbResponse = await axios.get(
-  //   "https://api.themoviedb.org/3/movie/",
-  //   API_CONFIG
-  // );
-
-  console.log(response.data.results[0].genre_ids);
   return response.data.results;
 };

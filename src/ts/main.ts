@@ -1,10 +1,40 @@
-import { IMovie } from "./models/IMovie";
 import { fetchMovies } from "./services/movieservice";
+
+const nextPageBtn = document.querySelector(".next-page") as HTMLButtonElement;
+const previousPageBtn = document.querySelector(
+  ".previous-page"
+) as HTMLButtonElement;
+const firstPageBtn = document.querySelector(".first-page") as HTMLButtonElement;
+const lastPageBtn = document.querySelector(".last-page") as HTMLButtonElement;
+
+const movieSliderWrapper = document.querySelector(
+  ".movie-slider-wrapper"
+) as HTMLDivElement;
+
 let whichPage: number = 1;
+
+const createMoviesSlider = async () => {
+  const horrorMovies = await fetchMovies(whichPage, 27);
+
+  for (let i = 0; i < horrorMovies.length; i++) {
+    const createHtmlGenre = document.createElement("article") as HTMLElement;
+    createHtmlGenre.classList.add("movie-card");
+    createHtmlGenre.innerHTML = `
+      <img class="movie-slider-poster" src="https://image.tmdb.org/t/p/w500${
+        horrorMovies[i].poster_path
+      }" alt="${horrorMovies[i].title} movie poster" width="100">
+      <h3 class="movie-slider-title">${horrorMovies[i].title}</h3>
+      <p class="movie-slider-year">${horrorMovies[i].release_date.slice(
+        0,
+        4
+      )}</p>
+      `;
+    movieSliderWrapper.appendChild(createHtmlGenre);
+  }
+};
 
 const createMovies = async () => {
   const movies = await fetchMovies(whichPage);
-
   const moviesContainer = document.querySelector(
     ".movies-container"
   ) as HTMLElement;
@@ -26,13 +56,6 @@ const createMovies = async () => {
     moviesContainer?.appendChild(movieContainer);
   }
 };
-
-const nextPageBtn = document.querySelector(".next-page") as HTMLButtonElement;
-const previousPageBtn = document.querySelector(
-  ".previous-page"
-) as HTMLButtonElement;
-const firstPageBtn = document.querySelector(".first-page") as HTMLButtonElement;
-const lastPageBtn = document.querySelector(".last-page") as HTMLButtonElement;
 
 nextPageBtn.addEventListener("click", () => {
   if (whichPage < 500) {
@@ -74,4 +97,5 @@ lastPageBtn.addEventListener("click", () => {
   });
 });
 
+createMoviesSlider();
 createMovies();
