@@ -74,6 +74,114 @@ h1 {
   }
 }
 
+.movie-slider {
+  cursor: grab;
+
+  .slider-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .movie-slider-wrapper {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+
+    .movie-card {
+      height: 100%;
+      width: 100%;
+      padding-right: 7px;
+
+      .movie-slider-title {
+        margin-top: 10px;
+        font-size: 0.8rem;
+        height: 40px;
+      }
+
+      .movie-slider-year {
+        font-size: 0.7rem;
+      }
+    }
+
+    .slider-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 2rem;
+      margin: 0 1rem;
+      color: #333;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: default;
+      }
+
+      &--prev {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  &::-moz-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+
+  &::-moz-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-moz-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+
+  &::-moz-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  &::-ms-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+
+  &::-ms-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-ms-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+
+  &::-ms-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
 
 .movies-container {
   .movie-container {
@@ -120,14 +228,12 @@ h1 {
   }
 }
 
-
 .page-navigation {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 20px 0 50px 0;
   font-family: 'Montserrat', sans-serif;
-
 
   button {
     background-color: $primary-color;
