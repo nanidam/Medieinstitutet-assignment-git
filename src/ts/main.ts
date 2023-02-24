@@ -103,3 +103,5 @@ createMovies();
 console.log("merge-branch2");
 
 console.log("cherry-picking");
+
+console.log("merge-branch1");
